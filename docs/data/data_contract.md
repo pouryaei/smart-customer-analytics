@@ -21,3 +21,11 @@ Churn
 raw → read only
 
 processed → reproducible
+
+## Dataset
+
+telco_customer_churn.csv
+
+## Data Source
+
+Kaggle
