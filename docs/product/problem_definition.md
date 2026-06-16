@@ -1,25 +1,38 @@
+
 # Problem Definition
 
 ## Business Problem
 
-TBD
+Businesses lose customers over time and often realize customer churn too late. This platform predicts which customers are likely to churn and provides analytics to support retention decisions.
 
 ## Users
 
-TBD
+* Business managers
+* Marketing teams
+* Customer success teams
 
 ## Inputs
 
-TBD
+* Customer profile
+* Subscription information
+* Usage behavior
+* Customer activity history
 
 ## Outputs
 
-TBD
+* Customer churn probability
+* Customer analytics dashboard
+* Customer segmentation insights
 
 ## Success Metrics
 
-TBD
+* Churn prediction ROC-AUC ≥ 0.80
+* API response time < 300ms
+* Dashboard loads < 2 seconds
 
 ## Constraints
 
-TBD
+* Deployable on Arvan Cloud
+* Dockerized
+* Modular codebase
+* No notebook-based production code
