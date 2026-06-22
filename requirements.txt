@@ -2,4 +2,6 @@ pandas==2.3.0
 jupyter==1.1.1
 ipykernel==6.29.5
 matplotlib==3.10.3
-scikit-learn
+scikit-learn==1.9.0
+streamlit==1.58.0
+
