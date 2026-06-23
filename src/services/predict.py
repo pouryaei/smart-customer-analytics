@@ -2,64 +2,44 @@ import joblib
 import pandas as pd
 from pathlib import Path
 
-
 MODEL_PATH = (
-    Path(__file__)
-    .parent
-    .parent
-    / "models"
-    / "churn_pipeline.pkl"
+    Path(__file__).parent.parent / "models" / "churn_pipeline.pkl"
 )
 
 model = joblib.load(MODEL_PATH)
 
+FEATURES = list(model.feature_names_in_)
 
-FEATURE_PATH = (
-    Path(__file__)
-    .parent.parent.parent
-    / "data"
-    / "processed"
-    / "selected_features.csv"
-)
-
-model = joblib.load(MODEL_PATH)
-
-FEATURES = (
-    pd.read_csv(FEATURE_PATH)
-    .iloc[:,0]
-    .tolist()
-)
+COEFS = model.named_steps["model"].coef_[0]
+feature_importance = dict(zip(FEATURES, COEFS))
 
 
-def predict_customer(customer):
+def explain_prediction(row: dict):
+    contributions = []
 
-    row = {
-        col: 0
-        for col in FEATURES
-    }
+    for feature, value in row.items():
+        if feature in feature_importance:
+            contributions.append(
+                (feature, feature_importance[feature] * value)
+            )
 
+    contributions.sort(key=lambda x: abs(x[1]), reverse=True)
+    return contributions[:5]
+
+
+def predict_customer(customer: dict):
+    row = {col: 0 for col in FEATURES}
     row.update(customer)
 
-    customer_df = pd.DataFrame(
-        [row]
-    )
+    df = pd.DataFrame([row])
 
-    prediction = (
-        model.predict(
-            customer_df
-        )[0]
-    )
+    prediction = model.predict(df)[0]
+    probability = model.predict_proba(df)[0][1]
 
-    probability = (
-        model.predict_proba(
-            customer_df
-        )[0][1]
-    )
+    explanation = explain_prediction(row)
 
     return {
         "prediction": int(prediction),
-        "probability": round(
-            float(probability),
-            3
-        )
+        "probability": round(float(probability), 3),
+        "explanation": explanation
     }
