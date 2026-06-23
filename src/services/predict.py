@@ -3,7 +3,12 @@ import pandas as pd
 from pathlib import Path
 
 MODEL_PATH = (
-    Path(__file__).parent.parent / "models" / "churn_pipeline.pkl"
+    Path(__file__)
+    .parent
+    .parent
+    .parent
+    / "artifacts"
+    / "churn_pipeline.pkl"
 )
 
 model = joblib.load(MODEL_PATH)

@@ -24,3 +24,5 @@ data/raw/*
 models/
 
 notebooks/*.ipynb
+
+artifacts/
