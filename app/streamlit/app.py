@@ -20,7 +20,8 @@ APP_DIR = Path(__file__).resolve().parent
 
 from ui import show_result
 
-API_URL = os.getenv("API_URL", "http://127.0.0.1:8000/api/v1/predict")
+# API_URL = os.getenv("API_URL", "http://127.0.0.1:8000/api/v1/predict")
+API_URL = None
 
 st.set_page_config(page_title="Axiomeet Analytics",layout="wide")
 
@@ -53,13 +54,30 @@ if st.button("Predict"):
     }
 
     try:
-        response = requests.post(API_URL, json=payload, timeout=3)
-        response.raise_for_status()
-        st.session_state.result = response.json()
+
+        if API_URL:
+            response = requests.post(
+                API_URL,
+                json=payload,
+                timeout=3
+            )
+
+            response.raise_for_status()
+
+            st.session_state.result = (
+                response.json()
+            )
+
+        else:
+            raise Exception()
 
     except Exception:
-        st.warning("API unavailable → using local model")
-        st.session_state.result = predict_customer(payload)
+
+        st.session_state.result = (
+            predict_customer(
+                payload
+            )
+        )
 
 if st.session_state.result is not None:
 
