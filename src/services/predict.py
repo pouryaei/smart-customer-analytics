@@ -13,9 +13,7 @@ MODEL_PATH = (
 
 model = joblib.load(MODEL_PATH)
 
-FEATURES = list(
-    model.feature_names_in_
-)
+FEATURES = list(model.feature_names_in_)
 
 COEFS = (
     model
@@ -31,71 +29,64 @@ feature_importance = dict(
 )
 
 
-def explain_prediction(row: dict):
+def explain_prediction(row):
 
-    contributions = []
+    scores = []
 
     for feature, value in row.items():
 
         if feature in feature_importance:
 
-            contributions.append(
+            scores.append(
                 (
                     feature,
                     float(
-                        feature_importance[feature]
-                        * value
+                        value
+                        *
+                        feature_importance[
+                            feature
+                        ]
                     )
                 )
             )
 
-    contributions.sort(
-        key=lambda x: abs(x[1]),
+    scores.sort(
+        key=lambda x:
+        abs(x[1]),
         reverse=True
     )
 
-    return contributions[:5]
+    return scores[:5]
 
 
-def predict_customer(customer: dict):
+def predict_customer(customer):
 
     row = {
-        col: 0
-        for col in FEATURES
+        f: 0
+        for f in FEATURES
     }
 
     row.update(customer)
 
-    df = pd.DataFrame(
-        [row]
-    )
+    df = pd.DataFrame([row])
 
-    prediction = (
-        model
-        .predict(df)[0]
-    )
+    pred = model.predict(df)[0]
 
-    probability = (
-        model
-        .predict_proba(df)[0][1]
-    )
-
-    explanation = (
-        explain_prediction(
-            row
-        )
-    )
+    prob = model.predict_proba(df)[0][1]
 
     return {
+
         "prediction":
-        int(prediction),
+        int(pred),
 
         "probability":
         round(
-            float(probability),
+            float(prob),
             3
         ),
 
         "explanation":
-        explanation
+        explain_prediction(
+            row
+        )
     }

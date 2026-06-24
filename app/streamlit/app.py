@@ -1,5 +1,12 @@
 import sys
 from pathlib import Path
+import os
+
+ROOT = Path(__file__).resolve().parents[2]
+APP_DIR = Path(__file__).resolve().parent
+
+sys.path.append(str(ROOT))
+sys.path.append(str(APP_DIR))
 
 import requests
 import streamlit as st
@@ -9,15 +16,9 @@ from src.services.predict import predict_customer
 ROOT = Path(__file__).resolve().parents[2]
 APP_DIR = Path(__file__).resolve().parent
 
-if str(ROOT) not in sys.path:
-    sys.path.append(str(ROOT))
-
-if str(APP_DIR) not in sys.path:
-    sys.path.append(str(APP_DIR))
-
 from ui import show_result
 
-API_URL = "http://127.0.0.1:8000/api/v1/predict"
+API_URL = os.getenv("API_URL", "http://127.0.0.1:8000/api/v1/predict")
 
 st.set_page_config(page_title="Axiomeet Analytics",layout="wide")
 
