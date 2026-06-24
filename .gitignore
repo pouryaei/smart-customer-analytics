@@ -25,4 +25,4 @@ models/
 
 notebooks/*.ipynb
 
-artifacts/
+# artifacts/
