@@ -1,10 +1,26 @@
+---
+
+title: Axiomeet Customer Analytics
+emoji: 📈
+colorFrom: blue
+colorTo: purple
+sdk: docker
+app_port: 8501
+pinned: false
+---
+
 # Axiomeet Customer Analytics
 
-Customer churn prediction system built with Machine Learning, Streamlit, and Docker.
+ML-powered customer churn analytics platform built with Streamlit, Scikit-learn and Docker.
 
-This project predicts customer churn probability and provides interpretable outputs to help understand the drivers behind predictions.
+Features:
 
----
+* Customer churn prediction
+* Probability estimation
+* Explainable output
+* Streamlit dashboard
+* Docker deployment
+
 
 ## Features
 
