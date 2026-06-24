@@ -26,3 +26,6 @@ models/
 notebooks/*.ipynb
 
 # artifacts/
+
+mlflow.db
+mlruns/
