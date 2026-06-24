@@ -3,6 +3,8 @@ from pathlib import Path
 
 import requests
 import streamlit as st
+from ui import show_result
+from src.services.predict import predict_customer
 
 ROOT = Path(__file__).resolve().parents[2]
 APP_DIR = Path(__file__).resolve().parent
@@ -15,7 +17,7 @@ if str(APP_DIR) not in sys.path:
 
 from ui import show_result
 
-API_URL = "http://api:8000/api/v1/predict"
+API_URL = "http://127.0.0.1:8000/api/v1/predict"
 
 st.set_page_config(page_title="Axiomeet Analytics",layout="wide")
 
@@ -48,16 +50,13 @@ if st.button("Predict"):
     }
 
     try:
-        response = requests.post(
-            API_URL,
-            json=payload,
-            timeout=10
-        )
+        response = requests.post(API_URL, json=payload, timeout=3)
         response.raise_for_status()
         st.session_state.result = response.json()
 
-    except Exception as e:
-        st.error(f"API Error: {e}")
+    except Exception:
+        st.warning("API unavailable → using local model")
+        st.session_state.result = predict_customer(payload)
 
 if st.session_state.result is not None:
 
