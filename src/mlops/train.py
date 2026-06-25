@@ -1,6 +1,7 @@
+import json
+import joblib
 import mlflow
 import mlflow.sklearn
-import joblib
 
 from pathlib import Path
 
@@ -13,16 +14,72 @@ MODEL_PATH = (
     / "churn_pipeline.pkl"
 )
 
+PARAM_PATH = (
+    ROOT
+    / "data"
+    / "processed"
+    / "best_params.json"
+)
+
+METRIC_PATH = (
+    ROOT
+    / "data"
+    / "processed"
+    / "final_metrics.csv"
+)
+
+
 mlflow.set_experiment(
     "customer-churn"
 )
 
 
-with mlflow.start_run():
+with mlflow.start_run() as run:
 
     model = joblib.load(
         MODEL_PATH
     )
+
+    params = json.load(
+        open(PARAM_PATH)
+    )
+
+    for k, v in params.items():
+
+        mlflow.log_param(
+            k,
+            v
+        )
+
+    with open(METRIC_PATH) as f:
+
+        rows = (
+            f
+            .read()
+            .splitlines()
+        )
+
+    headers = (
+        rows[0]
+        .split(",")
+    )
+
+    values = (
+        rows[1]
+        .split(",")
+    )
+
+    for h, v in zip(
+        headers,
+        values
+    ):
+
+        if h != "model":
+
+            mlflow.log_metric(
+                h,
+                float(v)
+            )
 
     model_info = (
         mlflow.sklearn.log_model(
@@ -31,6 +88,10 @@ with mlflow.start_run():
         )
     )
 
-print(
-    model_info.model_uri
-)
+    print(
+        f"run_id={run.info.run_id}"
+    )
+
+    print(
+        model_info.model_uri
+    )

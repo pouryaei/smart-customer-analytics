@@ -4,7 +4,8 @@ from pydantic import BaseModel
 from pydantic import Field
 from src.services.predict import predict_customer
 from src.utils.logger import logger
-
+import time
+from src.utils.monitor import log_prediction
 
 app = FastAPI(title="Axiomeet Customer Analytics API", version="1.1")
 
@@ -82,7 +83,7 @@ def predict(
 ):
 
     try:
-
+        start = time.time()
         payload = (
             customer
             .model_dump()
@@ -106,9 +107,19 @@ def predict(
             )
         )
 
-        logger.info(
-            f"prediction={result['prediction']}"
-        )
+        log_prediction(
+            payload,
+            result)
+
+        latency = round((time.time() - start) * 1000, 2)
+
+        logger.info((
+        f"prediction="
+        f"{result['prediction']} | "
+        f"probability="
+        f"{result['probability']} | "
+        f"latency_ms="
+        f"{latency}"))
 
         return result
 

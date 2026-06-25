@@ -1,0 +1,12 @@
+{"timestamp": "2026-06-25T09:22:27.290222", "input": {"tenure": 50, "MonthlyCharges": 0.0, "TotalCharges": 0.0, "InternetService_Fiber optic": 0, "Contract_Two year": 0}, "prediction": 0, "probability": 0.152}
+{"timestamp": "2026-06-25T09:25:26.807390", "input": {"tenure": 60, "MonthlyCharges": 0.0, "TotalCharges": 0.0, "InternetService_Fiber optic": 0, "Contract_Two year": 0}, "prediction": 0, "probability": 0.12}
+{"timestamp": "2026-06-25T09:25:29.734582", "input": {"tenure": 60, "MonthlyCharges": 0.0, "TotalCharges": 0.0, "InternetService_Fiber optic": 0, "Contract_Two year": 0}, "prediction": 0, "probability": 0.12}
+{"timestamp": "2026-06-25T09:25:34.312972", "input": {"tenure": 70, "MonthlyCharges": 0.0, "TotalCharges": 0.0, "InternetService_Fiber optic": 0, "Contract_Two year": 0}, "prediction": 0, "probability": 0.094}
+{"timestamp": "2026-06-25T09:25:38.961377", "input": {"tenure": 70, "MonthlyCharges": 100.0, "TotalCharges": 0.0, "InternetService_Fiber optic": 0, "Contract_Two year": 0}, "prediction": 0, "probability": 0.32}
+{"timestamp": "2026-06-25T09:25:44.253464", "input": {"tenure": 70, "MonthlyCharges": 100.0, "TotalCharges": 1500.0, "InternetService_Fiber optic": 0, "Contract_Two year": 0}, "prediction": 0, "probability": 0.303}
+{"timestamp": "2026-06-25T09:25:47.575427", "input": {"tenure": 70, "MonthlyCharges": 100.0, "TotalCharges": 1500.0, "InternetService_Fiber optic": 1, "Contract_Two year": 0}, "prediction": 0, "probability": 0.397}
+{"timestamp": "2026-06-25T09:25:52.247002", "input": {"tenure": 70, "MonthlyCharges": 100.0, "TotalCharges": 1500.0, "InternetService_Fiber optic": 1, "Contract_Two year": 1}, "prediction": 0, "probability": 0.268}
+{"timestamp": "2026-06-25T09:25:56.443891", "input": {"tenure": 30, "MonthlyCharges": 100.0, "TotalCharges": 1500.0, "InternetService_Fiber optic": 1, "Contract_Two year": 1}, "prediction": 1, "probability": 0.523}
+{"timestamp": "2026-06-25T09:26:06.627892", "input": {"tenure": 30, "MonthlyCharges": 100.0, "TotalCharges": 1500.0, "InternetService_Fiber optic": 1, "Contract_Two year": 1}, "prediction": 1, "probability": 0.523}
+{"timestamp": "2026-06-25T09:26:12.484769", "input": {"tenure": 40, "MonthlyCharges": 100.0, "TotalCharges": 1500.0, "InternetService_Fiber optic": 1, "Contract_Two year": 1}, "prediction": 0, "probability": 0.455}
+{"timestamp": "2026-06-25T09:26:17.868594", "input": {"tenure": 20, "MonthlyCharges": 100.0, "TotalCharges": 1500.0, "InternetService_Fiber optic": 1, "Contract_Two year": 1}, "prediction": 1, "probability": 0.591}

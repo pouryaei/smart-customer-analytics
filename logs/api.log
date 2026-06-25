@@ -1,0 +1,13 @@
+2026-06-25 12:42:15,320 | INFO | prediction=0 | probability=0.089 | latency_ms=29.79
+2026-06-25 12:52:27,290 | INFO | prediction=0 | probability=0.152 | latency_ms=14.76
+2026-06-25 12:55:26,807 | INFO | prediction=0 | probability=0.12 | latency_ms=14.66
+2026-06-25 12:55:29,734 | INFO | prediction=0 | probability=0.12 | latency_ms=5.56
+2026-06-25 12:55:34,313 | INFO | prediction=0 | probability=0.094 | latency_ms=5.6
+2026-06-25 12:55:38,961 | INFO | prediction=0 | probability=0.32 | latency_ms=5.11
+2026-06-25 12:55:44,253 | INFO | prediction=0 | probability=0.303 | latency_ms=5.33
+2026-06-25 12:55:47,575 | INFO | prediction=0 | probability=0.397 | latency_ms=5.85
+2026-06-25 12:55:52,247 | INFO | prediction=0 | probability=0.268 | latency_ms=5.31
+2026-06-25 12:55:56,444 | INFO | prediction=1 | probability=0.523 | latency_ms=5.74
+2026-06-25 12:56:06,628 | INFO | prediction=1 | probability=0.523 | latency_ms=5.27
+2026-06-25 12:56:12,484 | INFO | prediction=0 | probability=0.455 | latency_ms=5.05
+2026-06-25 12:56:17,868 | INFO | prediction=1 | probability=0.591 | latency_ms=4.98
