@@ -21,8 +21,8 @@ services:
     build: .
 
     environment:
-      API_URL: http://api:8000/api/v1/predict
-
+      APP_ENV: docker
+      
     container_name: axiomeet-ui
 
     command:

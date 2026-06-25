@@ -1,6 +1,9 @@
-import joblib
-import pandas as pd
+import os
 from pathlib import Path
+
+import joblib
+import mlflow
+import pandas as pd
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -11,9 +14,43 @@ MODEL_PATH = (
     / "churn_pipeline.pkl"
 )
 
-model = joblib.load(MODEL_PATH)
+MODEL_URI = (
+    "models:/customer-churn-model@production"
+)
 
-FEATURES = list(model.feature_names_in_)
+
+APP_ENV = os.getenv(
+    "APP_ENV",
+    "local"
+)
+
+
+if APP_ENV == "hf":
+
+    model = joblib.load(
+        MODEL_PATH
+    )
+
+else:
+
+    try:
+
+        model = (
+            mlflow.sklearn.load_model(
+                MODEL_URI
+            )
+        )
+
+    except Exception:
+
+        model = joblib.load(
+            MODEL_PATH
+        )
+
+
+FEATURES = list(
+    model.feature_names_in_
+)
 
 COEFS = (
     model
