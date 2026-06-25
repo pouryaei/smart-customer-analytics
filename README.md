@@ -9,6 +9,9 @@ app_port: 8501
 pinned: false
 ---
 
+Current Version: v1.0.0
+Status: Production Demo
+
 # Axiomeet Customer Analytics
 
 ML-powered customer churn analytics platform built with Streamlit, Scikit-learn and Docker.
@@ -24,16 +27,45 @@ Features:
 
 ## Features
 
-* Customer churn prediction
-* Interactive Streamlit dashboard
-* Explainable prediction output
-* Production-ready ML pipeline
-* Dockerized application
-* Structured project architecture
-
+- Customer churn prediction
+- Probability estimation
+- Prediction explainability
+- FastAPI inference service
+- Streamlit dashboard
+- MLflow model registry
+- Drift detection
+- Prediction monitoring
+- Retraining trigger
+- Docker deployment
+- Hugging Face deployment
 ---
 
 ## Tech Stack
+
+### Machine Learning
+- Python
+- Scikit-Learn
+- MLflow
+
+### Backend
+- FastAPI
+
+### Frontend
+- Streamlit
+
+### MLOps
+- Docker
+- Docker Compose
+- Model Registry
+- Monitoring
+
+### Data
+- Pandas
+- NumPy
+
+### Development
+- Git
+- Jupyter
 
 ### Machine Learning
 
@@ -58,27 +90,67 @@ Features:
 
 ---
 
-## Project Architecture
+## System Architecture
 
 ```text
-Data
- ↓
-Preprocessing
- ↓
-Feature Engineering
- ↓
-Model Training
- ↓
-Pipeline Serialization
- ↓
-Prediction Service
+User
  ↓
 Streamlit UI
  ↓
-Docker Deployment
+FastAPI
+ ↓
+Prediction Service
+ ↓
+MLflow Registry
+ ↓
+Monitoring
+ ↓
+Drift Detection
+ ↓
+Retraining Trigger
 ```
 
 ---
+
+## MLOps Workflow
+
+```text
+Train
+ ↓
+Register
+ ↓
+Promote
+ ↓
+Serve
+ ↓
+Monitor
+ ↓
+Detect Drift
+ ↓
+Retrain
+```
+
+
+## Deployment
+
+Environment support:
+
+- Local development
+- Docker Compose
+- Hugging Face Spaces
+
+Runtime automatically switches environment configuration.
+
+## Project Structure
+
+```text
+app/
+src/
+artifacts/
+data/
+docs/
+screenshots/
+```
 
 ## Dataset
 
@@ -135,7 +207,7 @@ Selected Features:
 Clone repository:
 
 ```bash
-git clone <YOUR_REPO_URL>
+git clone <https://github.com/pouryaei/smart-customer-analytics>
 ```
 
 Move into project:
@@ -192,7 +264,7 @@ Email:
 [axiomeet@gmail.com](mailto:axiomeet@gmail.com)
 
 Website:
-axiomeet.com
+axiomeet.com (coming soon)
 
 ---
 

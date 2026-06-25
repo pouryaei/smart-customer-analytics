@@ -11,3 +11,12 @@
 2026-06-25 12:56:06,628 | INFO | prediction=1 | probability=0.523 | latency_ms=5.27
 2026-06-25 12:56:12,484 | INFO | prediction=0 | probability=0.455 | latency_ms=5.05
 2026-06-25 12:56:17,868 | INFO | prediction=1 | probability=0.591 | latency_ms=4.98
+2026-06-25 13:13:44,897 | INFO | prediction=0 | probability=0.369 | latency_ms=19.61
+2026-06-25 13:15:04,018 | INFO | prediction=1 | probability=0.512 | latency_ms=6.32
+2026-06-25 13:15:08,601 | INFO | prediction=0 | probability=0.369 | latency_ms=5.55
+2026-06-25 13:16:20,056 | INFO | prediction=0 | probability=0.404 | latency_ms=7.02
+2026-06-25 13:16:25,856 | INFO | prediction=1 | probability=0.506 | latency_ms=5.68
+2026-06-25 13:16:33,096 | INFO | prediction=0 | probability=0.096 | latency_ms=6.0
+2026-06-25 13:16:36,155 | INFO | prediction=0 | probability=0.065 | latency_ms=6.69
+2026-06-25 13:16:59,329 | INFO | prediction=0 | probability=0.243 | latency_ms=5.47
+2026-06-25 13:23:36,098 | INFO | prediction=1 | probability=0.591 | latency_ms=9.42
